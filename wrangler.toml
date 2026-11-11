@@ -1,11 +1,11 @@
-name = "iot"
-main = "worker.js"
+name = "nova"
+main = "src/index.js"
 compatibility_date = "2024-11-01"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "iot"
-database_id = "PUT-YOUR-D1-ID-HERE"
+database_id = "51b149f5-970e-4862-a19e-e6166e9e8cc9"
 
 [triggers]
 crons = ["* * * * *"]
