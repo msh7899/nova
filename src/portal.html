@@ -1,0 +1,49 @@
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="{{ACCENT}}">
+<title>راه‌اندازی دستگاه · {{BRAND}}</title><style>/*BASE*/
+body{padding:18px 14px 40px}.w{max-width:440px;margin:auto}.hd{display:flex;align-items:center;gap:12px;margin:6px 2px 18px}.hd b{font-size:1.1rem}
+.sec{padding:18px;margin-bottom:14px}.sec h2{margin:0 0 4px;font-size:1.05rem}.sec p{margin:0 0 12px;font-size:.88rem;color:var(--mut)}
+.kv{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--sf2);border-radius:12px;padding:10px 12px;margin-top:8px}
+.kv small{color:var(--mut);display:block;font-size:.76rem}.kv code{font:700 1.05rem ui-monospace,Menlo,monospace;letter-spacing:.06em;direction:ltr;display:block;text-align:left}
+#nets{display:grid;gap:6px;margin-bottom:8px;max-height:230px;overflow:auto}
+.net{display:flex;align-items:center;gap:10px;width:100%;padding:11px 12px;border-radius:12px;border:1px solid var(--bd);background:var(--sf);color:var(--tx);font:inherit;cursor:pointer;text-align:right}
+.net.on{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 10%,var(--sf))}.net .nn{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr;text-align:right}
+.sg{display:inline-flex;gap:2px;align-items:flex-end;height:14px}.sg i{width:3px;background:var(--bd);border-radius:1px}.sg i:nth-child(1){height:5px}.sg i:nth-child(2){height:9px}.sg i:nth-child(3){height:14px}
+.s1 i:nth-child(1),.s2 i:nth-child(-n+2),.s3 i{background:var(--ac)}.lk{width:15px;height:15px;color:var(--mut)}
+.pwd{position:relative}.pwd input{padding-left:74px}.pwd button{position:absolute;left:6px;top:50%;transform:translateY(-50%)}
+details{margin-top:12px}summary{cursor:pointer;color:var(--mut);font-size:.88rem}
+.c{text-align:center;padding:30px 20px}.c h2{margin:6px 0}.okc{width:56px;height:56px;border-radius:50%;background:#16a34a1c;color:var(--ok);display:grid;place-items:center;margin:0 auto 12px}.okc.bad{background:#dc262618;color:var(--dn)}
+ol{text-align:right;color:var(--mut);padding-right:20px;font-size:.9rem;margin:14px 0}
+</style></head><body><div class="w">
+<div class="hd"><div class="logo"><svg class="ic" viewBox="0 0 24 24" style="fill:#fff3"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><div><b>{{BRAND}}</b><div class="mut" style="font-size:.84rem">راه‌اندازی دستگاه</div></div></div>
+<div id="v-form">
+<section class="card sec"><h2>مشخصات دستگاه</h2><p>برای افزودن دستگاه به حساب‌تان به این دو مقدار نیاز دارید.</p>
+<div class="kv"><div><small>شناسه دستگاه</small><code>@@ID@@</code></div><button class="btn g sm" type="button" onclick="cp('@@ID@@',this)">کپی</button></div>
+<div class="kv"><div><small>کد اتصال</small><code>@@CLAIM@@</code></div><button class="btn g sm" type="button" onclick="cp('@@CLAIM@@',this)">کپی</button></div></section>
+<form id="f" class="card sec"><h2>اتصال به وای‌فای</h2><p>شبکه خانه یا محل کار را انتخاب کنید. دستگاه فقط ۲٫۴ گیگاهرتز را پشتیبانی می‌کند.</p>
+<div id="nets"></div><a class="btn g sm" href="/?rescan=1">جستجوی دوباره</a>
+<label class="f" for="ssid">نام شبکه</label><input id="ssid" required dir="ltr" autocapitalize="none" autocomplete="off" placeholder="برای شبکه مخفی، نام را بنویسید">
+<label class="f" for="pass">رمز وای‌فای</label><div class="pwd"><input id="pass" type="password" dir="ltr" autocomplete="off"><button type="button" class="btn g sm" onclick="var p=document.getElementById('pass'),s=p.type=='password';p.type=s?'text':'password';this.textContent=s?'پنهان':'نمایش'">نمایش</button></div>
+<details><summary>تنظیمات پیشرفته</summary><label class="f" for="srv">آدرس سرور</label><input id="srv" dir="ltr" value="@@SERVER@@"></details>
+<button class="btn full" style="margin-top:18px">ذخیره و اتصال</button></form></div>
+<div id="v-busy" class="card sec c" hidden><div class="spin"></div><h2>در حال اتصال…</h2><p>چند ثانیه صبر کنید. اگر ارتباط گوشی با دستگاه قطع شد، طبیعی است.</p></div>
+<div id="v-ok" class="card sec c" hidden><div class="okc"><svg class="ic" viewBox="0 0 24 24" style="width:28px;height:28px"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h2>دستگاه به وای‌فای وصل شد</h2>
+<p>این صفحه را ببندید و گوشی را به اینترنت معمولی برگردانید.</p>
+<ol><li>وارد پنل شوید: <b dir="ltr" id="pl"></b></li><li>گزینه «افزودن دستگاه» را بزنید.</li><li>شناسه <b dir="ltr">@@ID@@</b> و کد اتصال <b dir="ltr">@@CLAIM@@</b> را وارد کنید.</li></ol></div>
+<div id="v-fail" class="card sec c" hidden><div class="okc bad"><svg class="ic" viewBox="0 0 24 24" style="width:28px;height:28px"><path d="M18 6 6 18M6 6l12 12"/></svg></div><h2>اتصال برقرار نشد</h2><p>نام یا رمز وای‌فای را بررسی کنید و دوباره امتحان کنید.</p><button class="btn full" onclick="show('form')">تلاش دوباره</button></div>
+</div><script>
+const NETS=@@NETS@@,SSID0="@@SSID@@",$=s=>document.querySelector(s);let sel=SSID0;
+const bars=r=>r>-60?3:r>-72?2:1;
+function render(){const seen={},l=NETS.filter(n=>n.s&&!seen[n.s]&&(seen[n.s]=1)).sort((a,b)=>b.r-a.r),box=$('#nets');box.innerHTML='';
+ if(!l.length){box.innerHTML='<p style="margin:0">شبکه‌ای پیدا نشد؛ نام را دستی بنویسید یا دوباره جستجو کنید.</p>';return}
+ l.forEach(n=>{const b=document.createElement('button');b.type='button';b.className='net'+(n.s==sel?' on':'');
+  b.innerHTML='<span class="sg s'+bars(n.r)+'"><i></i><i></i><i></i></span><span class="nn"></span>'+(n.l?'<svg class="ic lk" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>':'');
+  b.querySelector('.nn').textContent=n.s;b.onclick=()=>{sel=n.s;$('#ssid').value=n.s;render();$('#pass').focus()};box.appendChild(b)})}
+function show(v){['form','busy','ok','fail'].forEach(x=>$('#v-'+x).hidden=x!=v)}
+function cp(t,b){const d=()=>{b.textContent='کپی شد ✓';setTimeout(()=>b.textContent='کپی',1500)};
+ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(d);else{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove();d()}}
+let errs=0;async function poll(){try{const t=await(await fetch('/st')).text();errs=0;if(t=='ok')return show('ok');if(t=='fail')return show('fail');setTimeout(poll,1500)}
+ catch(e){if(++errs>=2)return show('ok');setTimeout(poll,1500)}}
+$('#f').onsubmit=async e=>{e.preventDefault();$('#pl').textContent=$('#srv').value.replace(/^https?:\/\//,'');show('busy');
+ try{await fetch('/save',{method:'POST',body:new URLSearchParams({s:$('#ssid').value,p:$('#pass').value,u:$('#srv').value})})}catch(x){}setTimeout(poll,1500)};
+$('#ssid').value=SSID0;render();
+</script></body></html>

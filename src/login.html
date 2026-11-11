@@ -1,0 +1,17 @@
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="{{ACCENT}}">
+<title>{{TITLE}} · {{BRAND}}</title><style>/*BASE*/
+body{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(800px 460px at 90% -10%,color-mix(in srgb,var(--ac) 20%,transparent),transparent),radial-gradient(640px 380px at -10% 110%,color-mix(in srgb,var(--ac2) 16%,transparent),transparent),var(--bg)}
+.box{width:100%;max-width:400px;padding:32px 26px}.logo.big{width:54px;height:54px;border-radius:17px;margin:0 auto 16px}.logo.big .ic{width:28px;height:28px}
+h1{font-size:1.4rem;margin:0;text-align:center}.sub{color:var(--mut);text-align:center;margin:6px 0 20px;font-size:.92rem}
+.pwd{position:relative}.pwd input{padding-left:74px}.pwd button{position:absolute;left:6px;top:50%;transform:translateY(-50%)}
+.err{background:#dc262615;color:var(--dn);padding:10px 12px;border-radius:12px;margin-top:14px;font-size:.88rem}
+.sw{text-align:center;color:var(--mut);margin:18px 0 0;font-size:.92rem}.sw a{color:var(--ac);font-weight:700;text-decoration:none}
+.ft{text-align:center;color:var(--mut);font-size:.78rem;margin-top:18px}
+</style></head><body><div style="width:100%;max-width:400px">
+<form class="card box" method="post">
+<div class="logo big"><svg class="ic" viewBox="0 0 24 24" style="fill:#fff3"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+<h1>{{TITLE}}</h1><p class="sub">{{SUB}}</p>
+<label class="f" for="u">نام کاربری</label><input id="u" name="u" dir="ltr" autocapitalize="none" autocomplete="username" required>
+<label class="f" for="p">رمز عبور</label><div class="pwd"><input id="p" name="p" type="password" dir="ltr" autocomplete="{{AUTOC}}" required><button type="button" class="btn g sm" onclick="var p=document.getElementById('p'),s=p.type=='password';p.type=s?'text':'password';this.textContent=s?'پنهان':'نمایش'">نمایش</button></div>
+{{ERR}}<button class="btn full" style="margin-top:20px">{{BTN}}</button>{{SWITCH}}</form>
+<div class="ft">{{BRAND}} · کنترل هوشمند دستگاه‌ها</div></div></body></html>

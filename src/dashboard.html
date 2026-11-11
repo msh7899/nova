@@ -1,0 +1,114 @@
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="{{ACCENT}}">
+<title>پنل · {{BRAND}}</title><style>/*BASE*/
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--bd)}
+.bar>div{max-width:1040px;margin:auto;padding:11px 16px;display:flex;align-items:center;gap:10px}.brand{font-weight:800;font-size:1.05rem;flex:1}
+.wrap{max-width:1040px;margin:auto;padding:18px 16px 70px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,430px),1fr))}
+.dv{padding:18px;display:flex;flex-direction:column;gap:14px}.ch{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.ch h3{margin:0 0 6px;font-size:1.1rem}.acts{display:flex;gap:6px}
+.sn{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tl{background:var(--sf2);border-radius:14px;padding:14px}
+.lb{display:flex;align-items:center;gap:6px;color:var(--mut);font-size:.82rem}.lb .ic{width:16px;height:16px}
+.tl b{display:block;font-size:2rem;font-weight:300;letter-spacing:-.02em;margin-top:2px;line-height:1.4}.tl sup{font-size:.85rem;color:var(--mut);margin-right:3px}
+.bar2{height:5px;border-radius:9px;background:var(--bd);overflow:hidden;margin-top:6px}.bar2 i{display:block;height:100%;background:var(--ac);width:0;transition:width .5s}
+.rs{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
+.rt{border:1px solid var(--bd);background:var(--sf2);border-radius:14px;padding:12px;text-align:right;cursor:pointer;font:inherit;color:var(--tx);display:flex;flex-direction:column;gap:10px;transition:.18s}
+.rt .pw{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--sf);color:var(--mut);transition:.18s}
+.rt .rn{display:block;font-weight:600;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rt .st{font-size:.76rem;opacity:.7}
+.rt.on{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 6px 18px color-mix(in srgb,var(--ac) 35%,transparent)}.rt.on .pw{background:#ffffff33;color:#fff}
+.dv.off .sn,.dv.off .rs{opacity:.55}.note{display:none;font-size:.82rem;color:var(--mut);margin:0}.dv.off .note{display:block}
+.empty{text-align:center;padding:42px 22px}.empty h3{margin:12px 0 4px}.empty ol{text-align:right;max-width:340px;margin:14px auto 22px;color:var(--mut);padding-right:20px}
+.sk{height:300px;animation:pl 1.2s infinite}@keyframes pl{50%{opacity:.5}}
+dialog{border:0;padding:0;border-radius:22px;width:min(520px,calc(100% - 24px));background:var(--sf);color:var(--tx);box-shadow:0 24px 70px #0007;max-height:88vh;overflow:auto}
+dialog::backdrop{background:#0b1220a0;backdrop-filter:blur(3px)}
+@media(max-width:600px){dialog{margin:auto auto 0;width:100%;border-radius:22px 22px 0 0}.hm{display:none}}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--bd);font-weight:700;position:sticky;top:0;background:var(--sf);z-index:1}.db{padding:4px 18px 20px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.g5{display:grid;gap:8px}
+.si{display:flex;align-items:center;gap:10px;padding:12px;background:var(--sf2);border-radius:14px;margin:8px 0}.si>div:first-child{flex:1;min-width:0}.tm{font-size:.82rem;color:var(--mut);text-align:left}
+.addbox{margin-top:18px;padding-top:4px;border-top:1px solid var(--bd)}.addbox>b{display:block;margin:12px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.chips label{cursor:pointer}.chips input{display:none}
+.chips span{display:block;padding:6px 11px;border-radius:99px;background:var(--sf2);color:var(--mut);font-size:.82rem;border:1px solid var(--bd)}.chips input:checked+span{background:var(--ac);border-color:var(--ac);color:#fff}
+#toast{inset:auto;bottom:22px;left:50%;margin:0;transform:translateX(-50%);border:0;background:var(--tx);color:var(--bg);padding:11px 18px;border-radius:12px;font:inherit;font-size:.9rem;max-width:90vw;display:none}#toast.show{display:block}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+<symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.8 0"/></symbol>
+<symbol id="i-therm" viewBox="0 0 24 24"><path d="M14 14.8V4a2 2 0 1 0-4 0v10.8a4 4 0 1 0 4 0z"/></symbol>
+<symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.7s6 6.2 6 10.8a6 6 0 0 1-12 0C6 8.9 12 2.7 12 2.7z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h8M18 6h2M4 12h2M12 12h8M4 18h10M20 18h0"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></symbol>
+<symbol id="i-out" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+</defs></svg>
+<header class="bar"><div><div class="logo"><svg class="ic" style="fill:#fff3"><use href="#i-bolt"/></svg></div><span class="brand">{{BRAND}}</span>
+<button class="btn sm" onclick="addSheet()"><svg class="ic" style="width:16px;height:16px"><use href="#i-plus"/></svg><span class="hm">افزودن دستگاه</span></button>
+<a class="btn g ic sm" href="/logout" title="خروج"><svg class="ic" style="width:18px;height:18px"><use href="#i-out"/></svg></a></div></header>
+<main class="wrap"><div class="grid" id="list"><div class="card sk"></div></div></main>
+<dialog id="dlg"></dialog><div id="toast" popover="manual"></div>
+<script>
+const $=s=>document.querySelector(s),D=$('#dlg');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
+const fd=s=>String(s).replace(/\d/g,x=>'۰۱۲۳۴۵۶۷۸۹'[x]);
+const nf=n=>Number(n).toLocaleString('fa-IR',{maximumFractionDigits:1});
+const ic=n=>`<svg class="ic"><use href="#i-${n}"/></svg>`;
+const DN={5:'شنبه',6:'یکشنبه',0:'دوشنبه',1:'سه‌شنبه',2:'چهارشنبه',3:'پنجشنبه',4:'جمعه'},ORD=[5,6,0,1,2,3,4];
+const TZ=[['Asia/Tehran','تهران'],['Asia/Dubai','دبی'],['Asia/Baghdad','بغداد'],['Europe/Istanbul','استانبول'],['Europe/London','لندن'],['UTC','UTC']];
+let devs=[],key='',first=true;
+const rname=(d,i)=>(d.rn&&d.rn[i])||'رله '+fd(i+1);
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');try{t.hidePopover();t.showPopover()}catch(e){}clearTimeout(toast.k);toast.k=setTimeout(()=>{t.classList.remove('show');try{t.hidePopover()}catch(e){}},2800)}
+async function api(u,m='GET',b){
+ try{const r=await fetch(u,{method:m,headers:{'Content-Type':'application/json'},body:b?JSON.stringify(b):undefined});
+ if(r.status==401){location='/login';return}
+ const j=await r.json().catch(()=>({}));if(!r.ok){toast(j.error||'خطا در ارتباط');return}return j}catch(e){toast('ارتباط با سرور برقرار نشد')}}
+function sheet(t,h){D.innerHTML=`<div class="dh"><span>${t}</span><button class="btn g ic sm" onclick="D.close()" aria-label="بستن">${ic('x')}</button></div><div class="db">${h}</div>`;if(!D.open)D.showModal()}
+function ask(msg,ok){return new Promise(res=>{sheet('تأیید',`<p>${msg}</p><div class="row2"><button class="btn d" id="yes">${ok}</button><button class="btn g" id="no">انصراف</button></div>`);
+ $('#yes').onclick=()=>{res(true);D.close()};$('#no').onclick=()=>D.close();D.addEventListener('close',()=>res(false),{once:true})})}
+function ago(s){if(!s)return 'هرگز';const d=Math.floor(Date.now()/1000)-s,f=(n,u)=>fd(n)+' '+u+' پیش';return d<60?'لحظاتی پیش':d<3600?f(Math.floor(d/60),'دقیقه'):d<86400?f(Math.floor(d/3600),'ساعت'):f(Math.floor(d/86400),'روز')}
+function card(d){return `<section class="card dv" id="c-${d.id}">
+<div class="ch"><div><h3 class="nm"></h3><span class="pill"><i></i><span class="os"></span></span></div>
+<div class="acts"><button class="btn g ic sm" title="زمان‌بندی" onclick="schedSheet('${d.id}')">${ic('clock')}</button><button class="btn g ic sm" title="تنظیمات" onclick="setSheet('${d.id}')">${ic('sliders')}</button></div></div>
+<div class="sn"><div class="tl"><div class="lb">${ic('therm')} دما</div><b class="t"></b></div><div class="tl"><div class="lb">${ic('drop')} رطوبت</div><b class="h"></b><div class="bar2"><i></i></div></div></div>
+<div class="rs">${[0,1,2,3,4].map(i=>`<button class="rt" data-i="${i}" onclick="tog('${d.id}',${i})"><span class="pw">${ic('power')}</span><span><span class="rn"></span><span class="st"></span></span></button>`).join('')}</div>
+<p class="note">دستگاه آفلاین است؛ دستورها پس از اتصال مجدد اعمال می‌شوند.</p></section>`}
+const empty=()=>`<div class="card empty" style="grid-column:1/-1"><div class="logo" style="width:56px;height:56px;border-radius:18px;margin:auto"><svg class="ic" style="width:28px;height:28px;fill:#fff3"><use href="#i-bolt"/></svg></div>
+<h3>هنوز دستگاهی اضافه نکرده‌اید</h3><p class="mut" style="margin:0">با سه قدم ساده شروع کنید:</p>
+<ol><li>دستگاه را روشن کنید و به هات‌اسپات آن وصل شوید.</li><li>وای‌فای خانه را در صفحه‌ای که باز می‌شود وارد کنید.</li><li>شناسه و کد اتصال نمایش‌داده‌شده را اینجا وارد کنید.</li></ol>
+<button class="btn" onclick="addSheet()">${ic('plus')} افزودن دستگاه</button></div>`;
+function patch(){devs.forEach(d=>{const c=$('#c-'+d.id);if(!c)return;
+ c.querySelector('.nm').textContent=d.name;c.querySelector('.pill').className='pill'+(d.online?' on':'');
+ c.querySelector('.os').textContent=d.online?'آنلاین':'آفلاین · '+ago(d.seen);c.classList.toggle('off',!d.online);
+ c.querySelector('.t').innerHTML=d.t==null?'--':nf(d.t)+'<sup>°C</sup>';c.querySelector('.h').innerHTML=d.h==null?'--':nf(d.h)+'<sup>٪</sup>';
+ c.querySelector('.bar2 i').style.width=Math.max(0,Math.min(100,d.h||0))+'%';
+ c.querySelectorAll('.rt').forEach(b=>{const i=+b.dataset.i,on=d.relays[i]=='1';b.classList.toggle('on',on);b.querySelector('.rn').textContent=rname(d,i);b.querySelector('.st').textContent=on?'روشن':'خاموش'})})}
+async function refresh(){if(document.hidden&&!first)return;const l=await api('/api/devices');if(!l)return;devs=l;first=false;
+ const k=l.map(d=>d.id).join();if(k!=key){key=k;$('#list').innerHTML=l.length?l.map(card).join(''):empty()}patch()}
+async function tog(id,i){const d=devs.find(x=>x.id==id),s=d.relays[i]=='1'?0:1,old=d.relays;
+ d.relays=old.slice(0,i)+s+old.slice(i+1);patch();
+ const r=await api(`/api/devices/${id}/relay`,'POST',{i,s});d.relays=r?r.relays:old;patch();
+ if(r&&!d.online)toast('دستگاه آفلاین است؛ پس از اتصال اعمال می‌شود')}
+function addSheet(){sheet('افزودن دستگاه',`<p class="mut" style="margin:10px 0 0;font-size:.88rem">شناسه و کد اتصال در صفحه راه‌اندازی دستگاه (هات‌اسپات) نمایش داده می‌شود.</p>
+<label class="f">شناسه دستگاه</label><input id="cid" dir="ltr" placeholder="A1B2C3D4E5F6" autocapitalize="characters">
+<label class="f">کد اتصال</label><input id="ccl" dir="ltr" placeholder="1A2B3C4D" autocapitalize="characters">
+<button class="btn full" style="margin-top:20px" onclick="addDev()">افزودن</button>`)}
+async function addDev(){const r=await api('/api/claim','POST',{id:$('#cid').value,claim:$('#ccl').value});if(r){D.close();toast('دستگاه اضافه شد');key='';refresh()}}
+function setSheet(id){const d=devs.find(x=>x.id==id),z=TZ.some(x=>x[0]==d.tz);
+ sheet('تنظیمات دستگاه',`<label class="f">نام دستگاه</label><input id="n" maxlength="40" value="${esc(d.name)}">
+<label class="f">نام رله‌ها</label><div class="g5">${[0,1,2,3,4].map(i=>`<input class="rnm" maxlength="20" placeholder="رله ${fd(i+1)}" value="${esc((d.rn&&d.rn[i])||'')}">`).join('')}</div>
+<label class="f">منطقه زمانی (برای زمان‌بندی)</label><select id="z">${TZ.map(([v,n])=>`<option value="${v}" ${v==d.tz?'selected':''}>${n}</option>`).join('')}${z?'':`<option selected>${esc(d.tz)}</option>`}</select>
+<label class="f">شناسه دستگاه</label><input readonly dir="ltr" value="${d.id}" onclick="this.select()">
+<div class="row2" style="margin-top:20px"><button class="btn" onclick="save('${id}')">ذخیره</button><button class="btn d" onclick="rel('${id}')">${ic('trash')} حذف</button></div>`)}
+async function save(id){const r=await api(`/api/devices/${id}/settings`,'POST',{name:$('#n').value,tz:$('#z').value,rn:[...document.querySelectorAll('.rnm')].map(x=>x.value)});if(r){D.close();toast('ذخیره شد');refresh()}}
+async function rel(id){if(await ask('این دستگاه از حساب شما حذف شود؟ زمان‌بندی‌های آن هم پاک می‌شود.','حذف')){if(await api(`/api/devices/${id}`,'DELETE')){toast('دستگاه حذف شد');key='';refresh()}}}
+function schedSheet(id){const d=devs.find(x=>x.id==id);
+ sheet('زمان‌بندی خودکار',`<div id="sl"></div><div class="addbox"><b>زمان‌بندی جدید</b>
+<select id="sr">${[0,1,2,3,4].map(i=>`<option value="${i}">${esc(rname(d,i))}</option>`).join('')}</select>
+<div class="chips">${ORD.map(i=>`<label><input type="checkbox" class="dy" value="${i}" checked><span>${DN[i]}</span></label>`).join('')}</div>
+<div class="row2"><div><label class="f" style="margin-top:0">روشن شدن</label><input type="time" id="a" value="18:00"></div><div><label class="f" style="margin-top:0">خاموش شدن</label><input type="time" id="b" value="22:00"></div></div>
+<button class="btn full" style="margin-top:16px" onclick="addS('${id}')">${ic('plus')} افزودن زمان‌بندی</button></div>`);loadS(id)}
+async function loadS(id){const d=devs.find(x=>x.id==id),l=await api(`/api/devices/${id}/schedules`);if(!l)return;
+ $('#sl').innerHTML=l.length?l.map(s=>`<div class="si"><div><b>${esc(rname(d,s.relay))}</b><div class="mut" style="font-size:.82rem">${s.days=='1111111'?'هر روز':ORD.filter(i=>s.days[i]=='1').map(i=>DN[i]).join('، ')}</div></div><div class="tm">${fd(s.t_on)}<br>تا ${fd(s.t_off)}</div><button class="btn d ic sm" onclick="delS(${s.id},'${id}')" aria-label="حذف">${ic('trash')}</button></div>`).join(''):'<p class="mut" style="text-align:center;margin:20px 0">هنوز زمان‌بندی‌ای ندارید.</p>'}
+async function addS(id){const days=Array(7).fill('0');document.querySelectorAll('.dy:checked').forEach(x=>days[x.value]='1');
+ const r=await api(`/api/devices/${id}/schedules`,'POST',{relay:+$('#sr').value,days:days.join(''),t_on:$('#a').value,t_off:$('#b').value});if(r){toast('زمان‌بندی اضافه شد');loadS(id)}}
+async function delS(sid,id){await api('/api/schedules/'+sid,'DELETE');loadS(id)}
+refresh();setInterval(refresh,3000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
+</script></body></html>
